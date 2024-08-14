@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
+import ErrorBoundary from './ErrorBoundary';
 import fetchPet from './fetchPet';
+import Carousel from './carousel';
 
 const Details = () => {
   const { id } = useParams();
@@ -20,6 +22,8 @@ const Details = () => {
   const pet = results.data.pets[0];
   return (
     <div className="details">
+      <Carousel images ={pet.images} />
+
       <div>
         <h1>{pet.name}</h1>
         <h2>{pet.animal} - {pet.breed} - {pet.city}, {pet.state}</h2>
@@ -31,4 +35,13 @@ const Details = () => {
   );
 };
 
-export default Details;
+function DetailsErrorBoundary() {
+  return (
+    <ErrorBoundary>
+      <Details />
+    </ErrorBoundary>
+  );
+}
+
+export default DetailsErrorBoundary;
+
