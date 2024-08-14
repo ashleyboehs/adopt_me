@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class ErrorBoundary extends Component {
   state = { hasError: false };
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
 
