@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class ErrorBoundary extends Component {
-  state = hasError: false;
+  state = { hasError: false };
   static getDerivedStateFromError(error) {
     return { hasError: true };
   }
@@ -15,8 +15,11 @@ class ErrorBoundary extends Component {
   render() {
     if (this.state.hasError) {
       return (
-        <h2>Something went wrong</h2>
+        <h2>Something went wrong
           <Link to="/">Go back to the homepage</Link>
+        </h2>
+
+
       )
     }
 
