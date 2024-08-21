@@ -4,7 +4,9 @@ import { useQuery } from '@tanstack/react-query';
 import ErrorBoundary from './ErrorBoundary';
 import fetchPet from './fetchPet';
 import Carousel from './carousel';
-import Modal from './Modal';
+
+const Modal = lazy(() => import('./Modal'));
+
 
 const Details = () => {
   const [showModal, setShowModal] = useState(false);
